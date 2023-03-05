@@ -11,6 +11,7 @@ media/
 dataset/
 data/
 param/
+output/
 
 # binary file
 *.png

@@ -1,2 +1,4 @@
+os
 re
+shutil
 bibtexparser
