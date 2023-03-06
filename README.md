@@ -17,13 +17,13 @@ The output of `jabref2obsidian` is a set of Markdown files that are organized in
 
 - `Notes`: This folder contains a Markdown file for each entry in your JabRef repository. Each file contains information about the entry such as its title, author, and citation key.
 
-
+![note page](https://github.com/TOB-KNPOB/Jabref2Obsidian/blob/main/examples/note_page.png)
 _Fig. Example note page._
 
 - `Groups`: This folder contains a Markdown file for each group in your JabRef repository. The file for each group contains a list of entries that belong to that group.
 File Structure
 
-
+![group page](https://github.com/TOB-KNPOB/Jabref2Obsidian/blob/main/examples/group_page.png)
 _Fig. Example group page._
 
 The file structure of the output folder is organized as follows:
