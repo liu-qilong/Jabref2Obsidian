@@ -1,5 +1,0 @@
-os
-re
-shutil
-quickjs
-bibtexparser
