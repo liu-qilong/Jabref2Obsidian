@@ -31,8 +31,10 @@ The file structure of the output folder is organized as follows:
 ```sql
 output/
 ├── Groups/
-│   ├── Group 1.md
-│   ├── Group 2.md
+│   ├── Group 1/
+│   │   ├── Group 1.md
+│   ├── Group 2/
+│   │   ├── Group 2.md
 │   └── ...
 └── Notes/
     ├── Entry 1.md
