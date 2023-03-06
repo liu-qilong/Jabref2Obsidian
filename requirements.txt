@@ -2,3 +2,4 @@ quickjs
 bibtexparser
 sphinx_copybutton
 myst_parser
+furo
