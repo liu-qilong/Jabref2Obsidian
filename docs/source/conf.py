@@ -69,11 +69,11 @@ html_theme = 'furo'
 html_logo = 'logo_tob.png'
 
 html_context = {
-    "display_github": True, # Integrate GitHub
-    "github_user": "TOB-KNPOB", # Username
-    "github_repo": "Jabref2Obsdian", # Repo name
-    "github_version": "main", # Version
-    "conf_py_path": "/docs/", # Path in the checkout to the docs root
+    "display_github": True,
+    "github_user": "TOB-KNPOB",
+    "github_repo": "Jabref2Obsdian",
+    "github_version": "main",
+    "conf_py_path": "/docs/",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
