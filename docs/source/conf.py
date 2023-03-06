@@ -34,12 +34,12 @@ extensions = [
 	'sphinx.ext.doctest',
 	'sphinx.ext.autodoc',
 	'sphinx.ext.autosummary',
-	"sphinx.ext.inheritance_diagram",
+	'sphinx.ext.inheritance_diagram',
 	'sphinx.ext.napoleon',
-	"sphinx.ext.viewcode",
-	"sphinx_copybutton",
-	'myst_parser',
+	'sphinx.ext.viewcode',
 	'sphinx.ext.autosectionlabel',
+	'sphinx_copybutton',
+	'myst_parser',
 ]
 
 source_suffix = {
@@ -67,6 +67,14 @@ exclude_patterns = []
 #
 html_theme = 'furo'
 html_logo = 'logo_tob.png'
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "TOB-KNPOB", # Username
+    "github_repo": "Jabref2Obsdian", # Repo name
+    "github_version": "main", # Version
+    "conf_py_path": "/docs/", # Path in the checkout to the docs root
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
