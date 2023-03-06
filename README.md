@@ -1,4 +1,6 @@
-# Jabref2Markdown
+[![Documentation Status](https://readthedocs.org/projects/jabref2obsidian/badge/?version=latest)](https://jabref2obsidian.readthedocs.io/en/latest/?badge=latest)
+
+# Jabref2Obsidian
 
 `jabref2obsidian` is a tool that allows you to convert your JabRef biblatex repository to Obsidian markdown notes. This makes it easier to view your JabRef repository on any platform, including iPad where JabRef is currently not available. [^1]
 
