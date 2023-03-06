@@ -39,8 +39,3 @@ build/
 *cls
 *xdy
 *gz
-
-# rendered html docs
-!docs/build/
-docs/build/doctrees/
-docs/build/latex/
