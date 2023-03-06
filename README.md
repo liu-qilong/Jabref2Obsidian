@@ -1,6 +1,8 @@
 # Jabref2Markdown
 
-`jabref2obsidian` is a tool that allows you to convert your JabRef biblatex repository to Obsidian markdown notes. This makes it easier to view your JabRef repository on any platform, including iPad where JabRef is currently not available.
+`jabref2obsidian` is a tool that allows you to convert your JabRef biblatex repository to Obsidian markdown notes. This makes it easier to view your JabRef repository on any platform, including iPad where JabRef is currently not available. [^1]
+
+[^1]: [jabref for ipad #3611](https://github.com/JabRef/jabref/issues/3611)
 
 ## Usage
 
