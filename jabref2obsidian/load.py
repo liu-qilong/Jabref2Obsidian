@@ -1,13 +1,49 @@
 import re
 import bibtexparser
 
-def load_bib(bib_path: str):
+def load_bib(bib_path: str) -> bibtexparser.bibdatabase.BibDatabase:
+    """
+    Load a BibTeX file and parse it using :code:`bibtexparser`.
+
+    Parameters
+    ----------
+    bib_path : str
+        The file path to the BibTeX file.
+
+    Returns
+    -------
+    bibtexparser.bibdatabase.BibDatabase
+        A :code:`BibDatabase` object containing the parsed BibTeX data.
+    """
     with open(bib_path) as bibtex_file:
         bib_database = bibtexparser.load(bibtex_file)
+
     return bib_database
 
 
-def parse_group_tree(tree_str: str) -> dict:
+def parse_group_tree(tree_str: str) -> tuple:
+    """
+    Parses a string representing a tree of groups and returns a dictionary of
+    groups for fast access and a root node for the group tree.
+
+    Parameters
+    ----------
+    tree_str : str
+        The string representation of the group tree.
+
+        Attention
+        ---
+        Such text is extracted from the :code:`BibDatabase` object's first :code:`comment` entry, in alignment with the JabRef's data saving scheme: ::
+
+            tree_str = bib_database.comments[1]
+            group_dict, tree_root = load.parse_group_tree(tree_str)
+
+    Returns
+    -------
+    tuple
+        A tuple containing a dictionary of groups for fast access and a root
+        node for the group tree.
+    """
     # extract group level and name and combined as an order list
     lines = re.split('\n', tree_str)
     group_list = []
@@ -53,6 +89,32 @@ def parse_group_tree(tree_str: str) -> dict:
 
 
 def attach_entries_to_group(entries: list, group_dict: dict):
+    """
+    Attaches a list of entries to the corresponding groups in a dictionary of
+    groups.
+
+    Parameters
+    ----------
+    entries : list
+        A list of entries to be attached to the groups.
+    group_dict : dict
+        A dictionary of groups to which the entries will be attached.
+
+    Examples
+    --------
+    ::
+
+        # load bib file
+        bib_database = load.load_bib(bib_path)
+
+        # parse the group tree
+        # P.S. the group dictionary is for fast accessing of the group tree nodes
+        tree_str = bib_database.comments[1]
+        group_dict, tree_root = load.parse_group_tree(tree_str)
+
+        # attach the loaded entries to the corresponding nodes
+        load.attach_entries_to_group(bib_database.entries, group_dict)
+    """
     for entry in entries:
         # if the entry has groups attr, attach it to the corresponding groups
         if 'groups' in entry.keys():

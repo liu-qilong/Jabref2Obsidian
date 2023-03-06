@@ -3,6 +3,20 @@ import shutil
 from jabref2obsidian import cite
 
 def export_group_pages(node: dict, name: str, source_name: str = "None", export_folder: str = 'output/Groups/'):
+    """
+    Export a group's information, including a roadmap (of its source- and sub- groups) and its literature entries, into a markdown file under a folder of its name. Then recursively generating subfolders and markdown files for the subgroups in the same manner.
+
+    Parameters
+    ----------
+    node : dict
+        A dictionary containing a group's information including its subgroups and entries.
+    name : str
+        Name of the group.
+    source_name : str, optional
+        Name of the source group, by default :code:`"None"`.
+    export_folder : str, optional
+        Folder path for the output files, by default :code:`'output/Groups/'`.
+    """
     # create group folder
     if os.path.exists(export_folder):
         shutil.rmtree(export_folder)
@@ -55,6 +69,41 @@ def export_group_pages(node: dict, name: str, source_name: str = "None", export_
 
 
 def export_note_pages(entries: list, export_folder: str = 'output/Notes', asset_folder: str = '/Users/kirov/Library/Mobile Documents/iCloud~com~apple~iBooks/Documents/'):
+    """
+    Export a list of notes for the literature entries in markdown format to a specified folder.
+
+    Parameters:
+    -----------
+    entries : List[dict]
+        A list of dictionaries, where each dictionary represents a single literature entries.
+        Each dictionary should contain the following keys:
+
+        - :code:`'title' : str` : The title of the note.
+        - :code:`'groups' : str (optional)` : A comma-separated list of groups to which the note belongs.
+        - :code:`'author' : str (optional)` : The author of the note.
+        - :code:`'editor' : str (optional)` : The editor of the note.
+        - :code:`'file' : str (optional)` : The path to the file associated with the note.
+        - :code:`'ID' : str` : A unique identifier for the note.
+        - :code:`'comment' : str (optional)` : A comment or literature review associated with the note.
+
+    export_folder : str, optional
+        The path to the folder where the markdown files will be exported.
+        Defaults to :code:`'output/Notes'`.
+    asset_folder : str, optional
+        The path to the folder where the associated files are located.
+        Defaults to :code:`'/Users/kirov/Library/Mobile Documents/iCloud~com~apple~iBooks/Documents/'`.
+
+    Note
+    ----
+    This function creates a new folder at the specified `export_folder` path, if it does not already exist.
+
+    If the folder already exists, its contents will be deleted before creating new files.
+    Each note is exported as a markdown file in the specified :code:`export_folder`.
+
+    The markdown file includes various sections, such as title, asset, citation key, and literature review, depending on the keys present in the dictionary entry.
+
+    Any associated files are linked in the asset section, and citation information is also included. If any errors occur during the export process, the function prints an error message and continues with the next note.
+    """
     # create notes folder
     if os.path.exists(export_folder):
         shutil.rmtree(export_folder)
@@ -66,7 +115,7 @@ def export_note_pages(entries: list, export_folder: str = 'output/Notes', asset_
     for entry in entries:
         try:
             md_path = os.path.join(export_folder, "{}.md".format(entry['title']))
-            
+
             with open(md_path, 'w') as file:
                 # title section
                 file.write("### {}\n".format(entry['title']))
