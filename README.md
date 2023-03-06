@@ -1,16 +1,59 @@
 # Jabref2Markdown
 
-Convert the [JabRef](https://www.jabref.org) `biblatex` repository to [Obsidian](https://obsidian.md) markdown notes for cross-platform viewing.
+`jabref2obsidian` is a tool that allows you to convert your JabRef biblatex repository to Obsidian markdown notes. This makes it easier to view your JabRef repository on any platform, including iPad where JabRef is currently not available.
 
-_P.S. Currently, JabRef doesn't run on iPad platform, which motivates this project._
+## Usage
 
-Example scripts are stored in the `examples/` folder. Prerequisites for running the scripts are listed in `requirement.txt`. Following is a use case generating by the example script:
+Example scripts are stored in the `examples/` folder. To run the scripts, you will need to install the necessary packages listed in `requirements.txt`.
 
-- JabRef Repository
+After installing the necessary packages, you can use the example script to generate:
 
-- Generated Markdown pages for each entry
+- Markdown pages for each entry in your JabRef repository.
+- Markdown pages for each group in your JabRef repository.
 
-- Generated Markdown pages for each groups
-    file structure
+## Output
 
-    Markdown layout
+The output of `jabref2obsidian` is a set of Markdown files that are organized into a folder structure. The root folder contains two sub-folders:
+
+- `Notes`: This folder contains a Markdown file for each entry in your JabRef repository. Each file contains information about the entry such as its title, author, and citation key.
+
+
+_Fig. Example note page._
+
+- `Groups`: This folder contains a Markdown file for each group in your JabRef repository. The file for each group contains a list of entries that belong to that group.
+File Structure
+
+
+_Fig. Example group page._
+
+The file structure of the output folder is organized as follows:
+
+```sql
+output/
+├── Groups/
+│   ├── Group 1.md
+│   ├── Group 2.md
+│   └── ...
+└── Notes/
+    ├── Entry 1.md
+    ├── Entry 2.md
+    └── ...
+```
+
+## Markdown Layout
+
+Each group page has the following layout:
+
+- Title section: This section contains the title of the group.
+- Roadmap section: This section contains the links to source- and sub-groups of the group.
+- Entries section: This section contains the links to all entries associated with this group.
+
+Each literature entry page has the following layout:
+
+- Title section: This section contains the title of the entry.
+Asset section: This section contains the citation key and a link to the file associated with the entry (if any).
+- Literature review section (optional): This section contains any comments or notes related to the entry.
+
+## License
+
+This project is licensed under the MIT License.
