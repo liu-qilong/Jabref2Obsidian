@@ -2,8 +2,9 @@
 // The authors/editors are presented in full form.
 function citation_full(type_str, cite_str,
                   author_str, title_str, editor_str, edition_str,
-                  container_str, publisher_str, school_str, addres_str,
-                  year_str, vol_str, num_str, page_str) {
+                  publisher_str, school_str, address_str,
+                  year_str, vol_str, num_str, page_str,
+                  container_str) {
     
     // Transform author_str and editor_str to full form
     if (author_str != '') {
@@ -144,7 +145,7 @@ function citation_full(type_str, cite_str,
             publicate_str = container_str + '. ' + publisher_str
         }
 
-        publicate_str = addres_str + ': ' + publicate_str + '. ' + year_str + ', '
+        publicate_str = address_str + ': ' + publicate_str + '. ' + year_str + ', '
             + vol_str + '(' + num_str + '): ' + page_str + '.'
         edition_str = '第 ' + edition_str + ' 版'
     }
@@ -179,6 +180,27 @@ function citation_full(type_str, cite_str,
     while (cite_str.split(" . ").length > 1) {
         split_str = cite_str.split(" . ")
         cite_str = split_str.join(" ")
+    }
+
+    // Duplicated and annoying items.
+    while (cite_str.split("..").length > 1) {
+        split_str = cite_str.split("..")
+        cite_str = split_str.join(".")
+    }
+
+    while (cite_str.split("  ").length > 1) {
+        split_str = cite_str.split("  ")
+        cite_str = split_str.join(" ")
+    }
+
+    while (cite_str.split("{").length > 1) {
+        split_str = cite_str.split("{")
+        cite_str = split_str.join("")
+    }
+
+    while (cite_str.split("}").length > 1) {
+        split_str = cite_str.split("}")
+        cite_str = split_str.join("")
     }
 
     return cite_str

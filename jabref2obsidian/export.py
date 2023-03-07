@@ -124,13 +124,13 @@ def export_note_pages(entries: list, export_folder: str = 'output/Notes', asset_
                     file.write("$\infty$ [[{}]]\n".format(group_str))
 
                 if 'author' in entry.keys():
-                    file.write("{}\n".format(entry['author']))
+                    file.write("{}\n\n".format(entry['author']))
                 if 'editor' in entry.keys():
-                     file.write("Editors: {}\n".format(entry['editor']))
+                     file.write("Editors: {}\n\n".format(entry['editor']))
 
                 # asset section
                 file.write("---\n")
-                file.write("#### Asset\n\n")
+                file.write("#### Entry Type _{}_\n\n".format(entry['ENTRYTYPE']))
                 file.write("> {}\n".format("{}\n".format(cite.gen_citation_full(entry))))
                 
                 if 'file' in entry.keys():

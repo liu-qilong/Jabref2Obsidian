@@ -66,10 +66,9 @@ def param_assemble(entry: dict) -> list:
         'title_str': 'title', 
         'editor_str': 'editor', 
         'edition_str': 'edition',
-        'container_str': 'container', 
         'publisher_str': 'publisher', 
         'school_str': 'school', 
-        'addres_str': 'address',
+        'address_str': 'address',
         'year_str': 'year', 
         'vol_str': 'volume', 
         'num_str': 'number', 
@@ -83,6 +82,23 @@ def param_assemble(entry: dict) -> list:
             param_list.append(entry[key])
         else:
             param_list.append('')
+
+    # add container info w.r.t different types
+    try:
+        if entry['ENTRYTYPE'] == 'article':
+            param_list.append(entry['journal'])
+            
+        elif entry['ENTRYTYPE'] == 'incollection':
+            param_list.append(entry['booktitle'])
+
+        elif entry['ENTRYTYPE'] == 'inproceedings':
+            param_list.append(entry['booktitle'])
+
+        else:
+            param_list.append('')
+
+    except:
+        param_list.append('')
 
     return param_list
 
