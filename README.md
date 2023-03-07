@@ -32,7 +32,7 @@ _Fig. Example group page._
 
 The file structure of the output folder is organized as follows:
 
-```sql
+```
 output/
 ├── Groups/
 │   ├── Group 1/
@@ -45,6 +45,8 @@ output/
     ├── Entry 2.md
     └── ...
 ```
+
+_P.S. When outputting to the same folder again, it's recommended to quit Obsidian first. Otherwise duplicated files may occur._
 
 ## Markdown Layout
 

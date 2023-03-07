@@ -1,4 +1,4 @@
-# Readme
+# Introduction
 
 `jabref2obsidian` is a tool that allows you to convert your JabRef biblatex repository to Obsidian markdown notes. This makes it easier to view your JabRef repository on any platform, including iPad where JabRef is currently not available. [^1]
 [^1]: [jabref for ipad #3611](https://github.com/JabRef/jabref/issues/3611)
@@ -29,7 +29,7 @@ _Fig. Example group page._
 
 The file structure of the output folder is organized as follows:
 
-```sql
+```
 output/
 ├── Groups/
 │   ├── Group 1/
@@ -41,6 +41,10 @@ output/
     ├── Entry 1.md
     ├── Entry 2.md
     └── ...
+```
+
+```{attention}
+P.S. When outputting to the same folder again, it's recommended to quit Obsidian first. Otherwise duplicated files may occur.
 ```
 
 ## Markdown Layout

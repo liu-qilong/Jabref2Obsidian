@@ -193,16 +193,6 @@ function citation(type_str, cite_str,
         cite_str = split_str.join(" ")
     }
 
-    while (cite_str.split("{").length > 1) {
-        split_str = cite_str.split("{")
-        cite_str = split_str.join("")
-    }
-
-    while (cite_str.split("}").length > 1) {
-        split_str = cite_str.split("}")
-        cite_str = split_str.join("")
-    }
-
     return cite_str
 }
 

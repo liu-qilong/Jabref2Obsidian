@@ -114,7 +114,9 @@ def export_note_pages(entries: list, export_folder: str = 'output/Notes', asset_
     # create markdown files for notes
     for entry in entries:
         try:
-            md_path = os.path.join(export_folder, "{}.md".format(entry['title']))
+            md_path = os.path.join(
+                export_folder,  "{}.md".format(entry['title'])
+                )
 
             with open(md_path, 'w') as file:
                 # title section
@@ -125,6 +127,7 @@ def export_note_pages(entries: list, export_folder: str = 'output/Notes', asset_
 
                 if 'author' in entry.keys():
                     file.write("{}\n\n".format(entry['author']))
+
                 if 'editor' in entry.keys():
                      file.write("Editors: {}\n\n".format(entry['editor']))
 
@@ -132,17 +135,23 @@ def export_note_pages(entries: list, export_folder: str = 'output/Notes', asset_
                 file.write("---\n")
                 file.write("#### Entry Type _{}_\n\n".format(entry['ENTRYTYPE']))
                 file.write("> {}\n".format("{}\n".format(cite.gen_citation_full(entry))))
-                
+
                 if 'file' in entry.keys():
                     file_path = "file:/{}".format(os.path.join(asset_folder, entry['file'][1:-4])).replace(" ", "%20")
                     file.write("- Open [local file]({})^[only available on desktop] or search it in [Apple Books](ibooks://search).\n".format(file_path))
+
+                if 'url' in entry.keys():
+                    file.write("- URL: {}\n".format(entry['url']))
+
+                if 'doi' in entry.keys():
+                    file.write("- DOI: `{}`\n".format(entry['doi']))
 
                 file.write("- Citation key\n")
                 file.write("  ```\n")
                 file.write("  {}\n".format(entry['ID']))
                 file.write("  ```\n")
 
-                file.write("Citation text^[The citation text presented here is only for adding brief literature citations referenced to this note in another Obsidian note, not for formal academic papers.]\n")
+                file.write("- Citation text^[The citation text presented here is only for adding brief literature citations referenced to this note in another Obsidian note, not for formal academic papers.]\n")
                 file.write("  ```\n")
                 file.write("  {}\n".format(cite.gen_citation(entry)))
                 file.write("  ```\n")

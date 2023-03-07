@@ -18,6 +18,10 @@ def load_bib(bib_path: str) -> bibtexparser.bibdatabase.BibDatabase:
     with open(bib_path) as bibtex_file:
         bib_database = bibtexparser.load(bibtex_file)
 
+    # replace unwanted symbol in title string
+    for entry in bib_database.entries:
+        entry['title'] = entry['title'].replace('/', '_').replace('{', '').replace('}', '')
+
     return bib_database
 
 

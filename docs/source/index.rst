@@ -9,13 +9,13 @@ Welcome to :code:`jabref2obsidian`'s documentation!
 Convert the JabRef biblatex repository to Obsidian markdown notes for cross-platform viewing
 
 .. tip::
-   This documentation provides a :doc:`readme` summarising the major features and a comprehensive :doc:`api`.
+   This documentation provides a :doc:`intro` summarising the major features and a comprehensive :doc:`api`.
 
 .. toctree::
    :maxdepth: 3
    :caption: Table of Contents:
 
-   readme
+   intro
    api
 
 
